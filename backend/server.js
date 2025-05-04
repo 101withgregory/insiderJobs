@@ -5,11 +5,14 @@ import 'dotenv/config'
 import connectDB from './config/db.js';
 import * as Sentry from "@sentry/node"
 import { clerkWebhooks } from './controllers/webhooks.js';
+import companyRoutes from './routes/companyRoutes.js'
+import connectCloudinary from './config/cloudinary.js';
 const app = express()
 const PORT = process.env.PORT || 5000
 
 //connect to database
-await connectDB()
+await connectDB();
+await connectCloudinary();
 //middlewares
 app.use(cors())
 app.use(express.json());
@@ -20,6 +23,7 @@ app.get("/debug-sentry", function mainHandler(req, res) {
     throw new Error("My first Sentry error!");
   });
 app.post('/webhooks', clerkWebhooks)
+app.use('/api/company',companyRoutes)
 
 // The error handler must be registered before any other error middleware and after all controllers
 Sentry.setupExpressErrorHandler(app);
