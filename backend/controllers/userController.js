@@ -1,0 +1,22 @@
+
+
+//get user data
+export const getUserData = async(req, res)=>{
+   const userId = req.auth.userId;
+}
+
+//apply for a job
+export const applyForJob = async(req, res)=>{
+
+
+}
+
+//get user applied applications
+export const getUserJobApplications = async(req, res)=>{
+
+}
+
+//update user profile (resume)
+export const updateUserResume = async (req, res) =>{
+
+}
