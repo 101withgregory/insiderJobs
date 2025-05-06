@@ -9,7 +9,7 @@ import companyRoutes from './routes/companyRoutes.js'
 import jobRoutes from './routes/jobRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import connectCloudinary from './config/cloudinary.js';
-import {clerkMiddleware, ClerkMiddleware} from '@clerk/express'
+import {clerkMiddleware} from '@clerk/express'
 const app = express()
 const PORT = process.env.PORT || 5000
 
