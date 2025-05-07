@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets/assets'
 import { AppContext } from '../context/AppContext'
@@ -13,6 +13,12 @@ function Dashboard() {
     localStorage.removeItem('companyToken')
     goTo('/')
   }
+
+  useEffect(()=>{
+    if(companyData){
+        goTo('/dashboard/manage-jobs')
+    }
+  },[companyData])
   return (
     <div className='min-h-screen'>
         {/* Navbar for recruiter panel */}
@@ -56,7 +62,7 @@ function Dashboard() {
                     </NavLink>
                 </ul>
             </div>
-            <div>
+            <div className='flex-1 h-full p-2 sm:p-5'>
             <Outlet/>
         </div>
         </div>
