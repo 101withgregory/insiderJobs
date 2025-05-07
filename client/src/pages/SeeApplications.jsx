@@ -42,7 +42,7 @@ function SeeApplications() {
             fetchCompanyjobApplications()
         }
     }, [companyToken])
-    return applicants ? applicants.length !== 0 ? (<div className='flex items-center justify-center h-[70vh]'>
+    return applicants ? applicants.length === 0 ? (<div className='flex items-center justify-center h-[70vh]'>
         <p className='text-xl sm:text-2xl'>No Applications Available</p>
       </div>) : (
         <div className='container mx-auto p-4'>
